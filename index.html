@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nenad Laketić - web dizajn za beauty salone i klinike</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0D2B2B}a:hover{color:#082020}
+.pg a,.pg button{transition:color .2s,background-color .2s,border-color .2s,opacity .2s}
+.pg :focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.pg{
+  --g:#0D2B2B;--g9:#082020;--g7:#163A3A;--gl:#2A4C4B;
+  --cr:#F4F0E8;--cr2:#EAE4D8;--ln:#D3CBBB;--mu:#4E6363;--mud:#A9BAB5;--ph:#DCD5C8;
+  --ts:20px;--tb:32px;--nh:84px;
+  container-type:inline-size;font-family:'Hanken Grotesk',sans-serif;color:var(--g);background:var(--g);
+  font-size:17px;line-height:1.6;letter-spacing:-0.005em;-webkit-font-smoothing:antialiased
+}
+.pg *{box-sizing:border-box}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+.h{font-family:'Newsreader',serif;font-weight:400;letter-spacing:-0.03em;line-height:1;margin:0}
+.it{font-style:italic}
+.h1{font-size:60px;line-height:.95;letter-spacing:-0.04em}
+.lead{font-size:19px;line-height:1.55;max-width:52ch;margin:var(--ts) 0 0}
+.dark{background:var(--g);color:var(--cr)}
+.dark .lead{color:var(--mud)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 24px;border-radius:6px;font:500 16px/1 'Hanken Grotesk',sans-serif;letter-spacing:-0.01em;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-l{background:var(--cr);color:var(--g)}.btn-l:hover{background:var(--cr2);color:var(--g)}
+.btn-o{border-color:rgba(244,240,232,.4);color:var(--cr);background:transparent}.btn-o:hover{border-color:var(--cr);background:rgba(244,240,232,.08);color:var(--cr)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:var(--tb)}
+/* nav: providna dok si na vrhu, puna boja kad skroluješ */
+.navw{position:sticky;top:0;z-index:30;background:var(--g);color:var(--cr);transition:transform .3s ease,background-color .3s ease}
+.navw.up{transform:translateY(-100%)}
+.navw.top{background:transparent}
+.navw:after{content:"";position:absolute;inset:0;background-image:url(assets/grain.svg);background-size:240px 240px;opacity:.09;pointer-events:none;z-index:4;transition:opacity .3s}
+.navw.top:after{opacity:0}
+.nav{display:flex;align-items:center;justify-content:space-between;height:var(--nh);position:relative;z-index:5}
+.logo{font:italic 400 28px/1 'Newsreader',serif;letter-spacing:-0.03em;color:var(--cr);text-decoration:none}
+.logo:hover{color:var(--cr);opacity:.75}
+.nl{display:flex;gap:36px}.nl a{color:var(--mud);text-decoration:none;font-size:15px}.nl a:hover{color:var(--cr)}
+.nb{height:44px;font-size:15px}
+.ngrp{display:flex;align-items:center;gap:56px}
+.nr{display:flex;align-items:center;gap:24px}
+.nmail{background:none;border:0;padding:0;height:44px;display:flex;align-items:center;gap:8px;color:var(--mud);font:400 15px 'Hanken Grotesk',sans-serif;cursor:pointer}
+.nmail:hover{color:var(--cr)}
+.nst{display:inline-grid}.nst>span{grid-area:1/1;display:flex;align-items:center;gap:8px}
+.nst .hid{visibility:hidden}.nst .ok{color:var(--cr)}
+.burger{display:none;background:none;border:0;padding:10px;margin-right:-10px;cursor:pointer;width:44px;height:44px;flex-direction:column;justify-content:center;gap:6px}
+.burger span{display:block;height:1.5px;background:var(--cr);width:24px}
+.mm{position:absolute;left:0;right:0;top:72px;background:var(--g9);padding:16px 20px 24px;display:flex;flex-direction:column;z-index:20}
+.mm a.ml{color:var(--cr);text-decoration:none;font:400 30px/1 'Newsreader',serif;letter-spacing:-.02em;padding:16px 0;border-bottom:1px solid var(--gl)}
+.mm .btn{margin-top:20px;width:100%}
+.ov{position:absolute;left:0;right:0;top:72px;height:4000px;background:rgba(8,32,32,.6);z-index:19;border:0;padding:0;cursor:pointer}
+/* hero: počinje od vrha stranice, ispod navigacije */
+.heroD{overflow:hidden;position:relative;margin-top:calc(var(--nh) * -1)}
+.heroD:after{content:"";position:absolute;inset:0;background-image:url(assets/grain.svg);background-size:240px 240px;opacity:.09;pointer-events:none;z-index:4}
+.hg{min-height:784px;padding-top:var(--nh);display:flex;align-items:center}
+.ht{position:relative;z-index:2;max-width:620px;padding:24px 0 80px}
+.pill{display:inline-flex;align-items:center;gap:10px;font-size:12px;line-height:1;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mud);margin:0 0 24px}
+.dot{flex:none;width:8px;height:8px;border-radius:50%;background:#7FB89E;animation:pulse 2.4s ease-in-out infinite;transform:translateY(-.5px)}
+@keyframes pulse{50%{opacity:.35}}
+/* slika ide celom visinom heroa, preko zone navigacije */
+.hp{position:absolute;top:15%;bottom:0;left:52%;z-index:1}
+.hp img{display:block;height:100%;width:auto;max-width:none}
+.hp:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:38%;background:linear-gradient(to bottom,rgba(13,43,43,0) 0%,rgba(13,43,43,.75) 60%,#0D2B2B 100%);pointer-events:none}
+/* sekcije ispod heroa */
+.sec{padding:var(--sec) 0}
+.pg{--sec:104px;--tc:56px;--gap:24px}
+.h2{font-size:60px;line-height:1}.h3{font-size:28px;letter-spacing:-0.02em;line-height:1.1}
+.cream{background:var(--cr);color:var(--g)}
+.sint{text-align:center;font:italic 400 44px/1.1 'Newsreader',serif;letter-spacing:-.03em;margin:0 auto var(--tc);max-width:24ch}
+.sg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
+.si{padding:40px 36px 36px;border-left:1px solid var(--ln);display:flex;flex-direction:column}
+.si:first-child{border-left:0;padding-left:0}.si:last-child{padding-right:0}
+.sn{font:400 104px/1 'Newsreader',serif;letter-spacing:-.05em;margin:0 0 20px}
+.st{margin:0;font-size:16px;line-height:1.5;max-width:30ch}
+.ss{margin:auto 0 0;padding-top:20px;font-size:12px;color:var(--mu)}
+.wh{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:var(--tc)}
+.wg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+.card{border:1px solid var(--ln);display:flex;flex-direction:column;background:var(--cr)}
+.card.big{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.cvid{display:block;width:100%;height:auto;flex:none;object-fit:cover;object-position:center;background:#0D2B2B;aspect-ratio:16/10}
+.card.big .cvid{order:2;height:100%;aspect-ratio:auto;min-height:420px}
+.cb{padding:32px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card .tg{margin-top:auto;padding-top:8px}
+.card.big .cb{justify-content:flex-end;padding:40px}
+.tg{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.tg li{border:1px solid var(--ln);color:var(--g);font-size:12px;line-height:1;padding:6px 9px;border-radius:3px}
+.ct{font-size:15px;color:var(--mu);margin:0}
+.cth{display:flex;justify-content:space-between;align-items:center;gap:16px;text-decoration:none;color:var(--g)}
+.cth:hover{color:var(--g)}
+.cth svg{flex:none;transition:transform .2s}
+.cth:hover svg{transform:translate(2px,-2px)}
+/* veliki ekrani: širi sadržaj i tekst raste zajedno sa njim */
+@container (min-width:1440px){
+  .wrap{max-width:clamp(1180px,84cqw,1560px);padding:0 48px}
+  .hg{min-height:clamp(784px,50cqw,1000px)}
+  .ht{max-width:clamp(620px,42cqw,800px)}
+  .h1{font-size:clamp(60px,4.2cqw,82px)}
+  .lead{font-size:clamp(19px,1.15cqw,22px)}
+  .pill{font-size:13px;margin-bottom:28px}
+  .btns{margin-top:40px;gap:14px}
+  .btn{height:clamp(52px,3cqw,58px);padding:0 clamp(24px,1.6cqw,30px);font-size:clamp(16px,.9cqw,17px)}
+  .logo{font-size:clamp(28px,1.7cqw,32px)}
+  .nl a,.nmail{font-size:16px}
+  .nb{height:46px;font-size:16px}
+  .pg>*{--sec:clamp(104px,7cqw,136px);--tc:clamp(56px,3.6cqw,72px);--gap:clamp(24px,1.6cqw,32px)}
+  .h2{font-size:clamp(60px,4.2cqw,82px)}
+  .h3{font-size:clamp(28px,1.8cqw,34px)}
+  .sint{font-size:clamp(44px,2.9cqw,56px)}
+  .sn{font-size:clamp(104px,7cqw,136px)}
+  .st{font-size:clamp(16px,.95cqw,18px)}
+  .ss{font-size:13px}
+  .ct{font-size:clamp(15px,.9cqw,17px)}
+  .tg li{font-size:13px;padding:7px 10px}
+  .cb{padding:clamp(32px,2.1cqw,40px)}
+  .card.big .cb{padding:clamp(40px,2.6cqw,52px)}
+  .card.big .cvid{min-height:clamp(420px,30cqw,580px)}
+}
+@container (max-width:1199px){
+  .hp{top:auto;left:42%;width:55%;max-width:900px}
+  .hp img{width:100%;height:auto}
+}
+@container (max-width:768px){
+  .pg>*{--nh:72px}
+  .wrap{padding:0 20px}
+  .h1{font-size:40px}
+  .nl,.nb,.nmail{display:none}.burger{display:flex}
+  .heroD{margin-top:0}
+  .hg{min-height:0;display:block;padding-top:0}
+  .ht{padding:24px 0 16px;max-width:none}
+  .hp{position:relative;left:auto;top:auto;width:auto;max-width:none;margin:0}
+  .hp img{width:100%;height:auto}
+  .btns{flex-direction:column}.btn{width:100%}
+  .pg>*{--sec:72px;--tc:40px}
+  .h2{font-size:40px}.h3{font-size:24px}
+  .sint{font-size:32px}
+  .sg,.wg,.card.big{grid-template-columns:minmax(0,1fr)}
+  .si,.si:first-child,.si:last-child{border-left:0;border-top:1px solid var(--ln);padding:28px 0}
+  .si:first-child{border-top:0}
+  .sn{font-size:80px}
+  .card.big .cvid{min-height:0;aspect-ratio:16/10;order:0;height:auto}
+  .card.big .cb,.cb{padding:24px}
+}
+@media (prefers-reduced-motion: reduce){.navw{transition:none}}
+</style>
+</head>
+<body>
+<div class="pg" id="pocetak">
+<div class="navw top" id="navw">
+  <div class="wrap">
+    <nav class="nav" aria-label="Glavna navigacija">
+      <div class="ngrp"><a class="logo" href="#pocetak">Nenad</a>
+      <div class="nl"><a href="#radovi">Radovi</a><a href="#kako-radim">Kako radim</a><a href="#o-meni">O meni</a><a href="#pitanja">Pitanja</a></div></div>
+      <div class="nr">
+        <button class="nmail" type="button" aria-label="Kopiraj mejl adresu kontakt@nenadlaketic.com" id="copyNav"><span class="nst"><span id="navA">kontakt@nenadlaketic.com<svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="6" y="6" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M12 3.5H4.5A1 1 0 0 0 3.5 4.5V12" stroke="currentColor" stroke-width="1.3"/></svg></span><span class="hid" id="navB" role="status">Kopirano</span></span></button>
+        <a class="btn btn-o nb" href="#upit">Razgovor bez obaveza</a>
+      </div>
+      <button class="burger" type="button" aria-label="Otvori meni" id="burger" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+    <div id="menu" hidden>
+      <button class="ov" type="button" aria-label="Zatvori meni" data-close></button>
+      <div class="mm">
+        <a class="ml" href="#radovi" data-close>Radovi</a>
+        <a class="ml" href="#kako-radim" data-close>Kako radim</a>
+        <a class="ml" href="#o-meni" data-close>O meni</a>
+        <a class="ml" href="#pitanja" data-close>Pitanja</a>
+        <a class="btn btn-o" href="#upit" data-close>Razgovor bez obaveza</a>
+      </div>
+    </div>
+  </div>
+</div>
+<header class="dark heroD">
+  <div class="wrap">
+    <div class="hg">
+      <div class="ht">
+        <p class="pill"><span class="dot"></span>Primam još 3 projekta</p>
+        <h1 class="h h1">Pomažem beauty salonima i klinikama da sajt <span class="it">puni kalendar.</span></h1>
+        <p class="lead">Za vlasnike kojima lep sajt nije dovoljan. Sajt koji prima upite, zakazuje termine i šalje podsetnike umesto tebe.</p>
+        <div class="btns">
+          <a class="btn btn-l" href="#upit">Zatraži besplatnu početnu</a>
+          <a class="btn btn-o" href="#upit">Razgovor bez obaveza</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hp"><img src="assets/nenad.webp" alt="Nenad Laketić, web dizajner"></div>
+</header>
+
+<!-- STATS -->
+<section class="sec cream">
+  <div class="wrap">
+    <p class="sint">Tvoji klijenti već traže. <span style="font-style:normal">Pitanje je šta pronalaze.</span></p>
+    <div class="sg">
+      <div class="si"><p class="sn">94%</p><p class="st">koristi sajtove sa ocenama i recenzijama kada bira estetski tretman i pružaoca usluge.</p><p class="ss">Izvor: ASDS Consumer Survey, SAD, 2025</p></div>
+      <div class="si"><p class="sn">55%</p><p class="st">je izbeglo ili otkazalo termin zbog online recenzija.</p><p class="ss">Izvor: rater8 Patient Choice Report, SAD, 2026</p></div>
+      <div class="si"><p class="sn">47%</p><p class="st">je koristilo AI alate poput ChatGPT-a da istraži zdravstvene ustanove i lekare.</p><p class="ss">Izvor: rater8 Patient Choice Report, SAD, 2026</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="sec cream" id="radovi" style="background:#EAE4D8">
+  <div class="wrap">
+    <div class="wh"><h2 class="h h2">Odabrani radovi</h2></div>
+    <div class="wg">
+      <article class="card big">
+        <video class="cvid" muted loop playsinline autoplay preload="metadata" poster="assets/aurea-poster.webp" aria-label="Video: prolazak kroz sajt Aurea Estetika, kviz i zakazivanje termina"><source src="assets/aurea.mp4" type="video/mp4"></video>
+        <div class="cb">
+          <h3 class="h h3"><a class="cth" href="#" aria-label="Pogledaj projekat Aurea Estetika"><span>Aurea Estetika</span><svg width="18" height="18" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.1"/></svg></a></h3>
+          <p class="ct">Dizajn i izrada sajta za estetsku kliniku. Kviz pomaže posetiocu da pronađe pravi tretman i šalje mu personalizovan mejl, a konsultaciju zakazuje direktno preko kalendara.</p>
+          <ul class="tg"><li>Web dizajn</li><li>Kviz</li><li>Zakazivanje</li></ul>
+        </div>
+      </article>
+      <article class="card">
+        <video class="cvid" muted loop playsinline autoplay preload="metadata" poster="assets/velvet-poster.webp" aria-label="Video: prolazak kroz sajt Velvet Studio, kalkulator cene i poklon vaučer"><source src="assets/velvet.mp4" type="video/mp4"></video>
+        <div class="cb">
+          <h3 class="h h3"><a class="cth" href="#" aria-label="Pogledaj projekat Velvet Studio"><span>Velvet Studio</span><svg width="18" height="18" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.1"/></svg></a></h3>
+          <p class="ct">Sajt za premium salon lepote u Beogradu. Kalkulator cene laserske epilacije vodi posetioca pravo do zakazivanja, a poklon vaučer može da kupi online.</p>
+          <ul class="tg"><li>Web dizajn</li><li>Kalkulator cene</li><li>Zakazivanje</li><li>Poklon vaučer</li></ul>
+        </div>
+      </article>
+      <article class="card">
+        <video class="cvid" muted loop playsinline autoplay preload="metadata" poster="assets/orion-poster.webp" aria-label="Video: prolazak kroz sajt Orion Clinic, srpski i engleski, planer posete"><source src="assets/orion.mp4" type="video/mp4"></video>
+        <div class="cb">
+          <h3 class="h h3"><a class="cth" href="#" aria-label="Pogledaj projekat Orion Clinic"><span>Orion Clinic</span><svg width="18" height="18" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.1"/></svg></a></h3>
+          <p class="ct">Dvojezični sajt za polikliniku na Novom Beogradu. Planer posete pomaže pacijentima iz drugih gradova i inostranstva da isplaniraju dolazak.</p>
+          <ul class="tg"><li>Web dizajn</li><li>Dvojezičan sajt</li><li>Planer posete</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+</div>
+<script>
+(function(){
+  var nav=document.getElementById('navw'), lastY=0;
+  function onScroll(){
+    var y=window.scrollY||0, menuOpen=!document.getElementById('menu').hidden;
+    nav.classList.toggle('up', y>lastY && y>120 && !menuOpen);
+    nav.classList.toggle('top', y<=40);
+    lastY=y;
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  var menu=document.getElementById('menu'), burger=document.getElementById('burger');
+  function setMenu(open){ menu.hidden=!open; burger.setAttribute('aria-expanded',open?'true':'false'); burger.setAttribute('aria-label',open?'Zatvori meni':'Otvori meni'); }
+  burger.addEventListener('click',function(){ setMenu(menu.hidden); });
+  menu.querySelectorAll('[data-close]').forEach(function(el){ el.addEventListener('click',function(){ setMenu(false); }); });
+
+  var a=document.getElementById('navA'), b=document.getElementById('navB'), t;
+  document.getElementById('copyNav').addEventListener('click',function(){
+    var v='kontakt@nenadlaketic.com';
+    function done(){ a.className='hid'; b.className='ok'; clearTimeout(t); t=setTimeout(function(){ a.className=''; b.className='hid'; },2000); }
+    function fallback(){ try{ var ta=document.createElement('textarea'); ta.value=v; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);}catch(e){} done(); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(v).then(done,fallback); } else { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
